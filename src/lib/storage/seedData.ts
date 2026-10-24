@@ -1,0 +1,1020 @@
+import { InstitutionalApplication } from '@/types';
+
+export const SEED_APPLICATIONS: InstitutionalApplication[] = [
+  // =========================================================================
+  // SCENARIO 1: Complete application with all configured document checks passing
+  // =========================================================================
+  {
+    id: 'APP-2026-ENG-8491',
+    scenarioTag: 'scenario-1',
+    institutionName: 'Aryabhatta Institute of Technology & Management',
+    institutionType: 'Engineering & Technology',
+    applicationCategory: 'New Technical Institution',
+    trustName: 'Aryabhatta Shiksha Samiti',
+    establishmentYear: 2026,
+    state: 'Rajasthan',
+    district: 'Jaipur',
+    address: 'Sector 14, Institutional Area, Sitapura, Jaipur',
+    pinCode: '302022',
+    contactEmail: 'registrar@aryabhatta-tech.edu.in',
+    contactPhone: '+91-141-2770891',
+    submissionDate: '2026-02-10T10:30:00Z',
+    academicYear: '2026-2027',
+    validationStatus: 'VALIDATED_CLEAN',
+    verificationStatus: 'ALL_VERIFIED',
+    reviewStatus: 'RECOMMENDED_FOR_APPROVAL',
+    assignedOfficer: 'Dr. V. K. Malhotra (Senior Scrutiny Officer)',
+    documents: [
+      {
+        id: 'DOC-8491-01',
+        documentType: 'LAND_TITLE_DEED',
+        title: 'Registered Land Title Deed (10.2 Acres, Sitapura)',
+        fileName: 'Aryabhatta_Registered_Land_Deed_2025.pdf',
+        fileSize: 2450800,
+        mimeType: 'application/pdf',
+        fileHash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+        uploadedAt: '2026-02-10T09:15:00Z',
+        extractedText: `GOVERNMENT OF RAJASTHAN - SUB-REGISTRAR OFFICE SITAPURA JAIPUR
+DEED OF OWNERSHIP & TITLE CONVEYANCE
+Book No. 1, Volume 412, Page 88-94, Reg No: RJ-JPR-2025-10492
+This indenture certifies that Aryabhatta Shiksha Samiti (Registration No: RAJ-SOC-1998-4421) is the absolute, undisputed owner in possession of non-agricultural institutional land measuring 10.20 Acres located at Khasra No. 418/2, Sitapura Industrial & Institutional Area, Jaipur. Land use permission granted for Higher Technical Education under Urban Land Act vide order no. UDD/JPR/2024/774. Land is contiguous and unencumbered as on 12-Nov-2025. Valid indefinitely for educational use.`,
+        extractedFields: {
+          institutionName: { value: 'Aryabhatta Institute of Technology & Management', confidence: 0.98, sourceQuote: 'Aryabhatta Shiksha Samiti ... for Aryabhatta Institute of Technology & Management', pageNumber: 1 },
+          trustName: { value: 'Aryabhatta Shiksha Samiti', confidence: 0.99, sourceQuote: 'Aryabhatta Shiksha Samiti (Registration No: RAJ-SOC-1998-4421)', pageNumber: 1 },
+          registrationNumber: { value: 'RJ-JPR-2025-10492', confidence: 0.96, sourceQuote: 'Reg No: RJ-JPR-2025-10492', pageNumber: 1 },
+          issueDate: { value: '2025-11-12', confidence: 0.95, sourceQuote: 'unencumbered as on 12-Nov-2025', pageNumber: 1 },
+          expiryDate: { value: 'Permanent / Indefinite', confidence: 0.92, sourceQuote: 'Valid indefinitely for educational use', pageNumber: 1 },
+          landAreaAcres: { value: '10.20 Acres', confidence: 0.97, sourceQuote: 'measuring 10.20 Acres located at Khasra No. 418/2', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-8491-02',
+        documentType: 'BUILDING_PLAN_APPROVAL',
+        title: 'Municipal Approved Building Plan & Occupancy Certificate',
+        fileName: 'JDA_Approved_Building_Plan_Sanction.pdf',
+        fileSize: 4194304,
+        mimeType: 'application/pdf',
+        fileHash: 'a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e',
+        uploadedAt: '2026-02-10T09:20:00Z',
+        extractedText: `JAIPUR DEVELOPMENT AUTHORITY (JDA) - TOWN PLANNING DIRECTORATE
+SANCTION ORDER & BUILDING PLAN APPROVAL
+Sanction File Ref: JDA/BPC/2025/ENG/9904 | Date of Sanction: 14-Aug-2025
+Approved for: Aryabhatta Institute of Technology & Management
+Promoted by: Aryabhatta Shiksha Samiti
+Total Built-Up Area Sanctioned: 24,500 sq. meters across 4 Academic & Administrative Blocks.
+Structural Engineer Certification: Er. N. R. Kulkarni (SE/JDA/A-142), confirming National Building Code (NBC 2016) seismic compliance for Zone II. Barrier-free ramps, elevators, and wide corridors approved. Occupancy fit for immediate educational use.`,
+        extractedFields: {
+          institutionName: { value: 'Aryabhatta Institute of Technology & Management', confidence: 0.99, sourceQuote: 'Approved for: Aryabhatta Institute of Technology & Management', pageNumber: 1 },
+          referenceNumber: { value: 'JDA/BPC/2025/ENG/9904', confidence: 0.98, sourceQuote: 'Sanction File Ref: JDA/BPC/2025/ENG/9904', pageNumber: 1 },
+          sanctionDate: { value: '2025-08-14', confidence: 0.96, sourceQuote: 'Date of Sanction: 14-Aug-2025', pageNumber: 1 },
+          builtUpArea: { value: '24,500 sq.m', confidence: 0.95, sourceQuote: 'Total Built-Up Area Sanctioned: 24,500 sq. meters', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-8491-03',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        title: 'Fire & Emergency Safety No-Objection Certificate',
+        fileName: 'Rajasthan_Fire_Safety_NOC_Sitapura.pdf',
+        fileSize: 1845000,
+        mimeType: 'application/pdf',
+        fileHash: '2c624232cdd221771294dfbb310aca000a0df6ec9b5feb983f14040f2a7fa726',
+        uploadedAt: '2026-02-10T09:22:00Z',
+        extractedText: `OFFICE OF CHIEF FIRE OFFICER - JAIPUR MUNICIPAL CORPORATION
+NO-OBJECTION CERTIFICATE (FIRE & LIFE SAFETY)
+CFO Ref: JMC/FIRE/NOC/2025/3812
+Issued to: Aryabhatta Institute of Technology & Management, Sitapura, Jaipur
+Certified that inspection of premises completed on 18-Oct-2025. All fire-fighting hydrants, hose reels, automatic sprinkler systems, smoke alarms, and 50,000L underground static water storage tanks are fully operational in accordance with NBC 2016 norms.
+Date of Issue: 20-Oct-2025
+Valid Up to: 19-Oct-2028 (3 Years validity period)
+Condition: Annual mock drills and functional audit mandatory.`,
+        extractedFields: {
+          institutionName: { value: 'Aryabhatta Institute of Technology & Management', confidence: 0.98, sourceQuote: 'Issued to: Aryabhatta Institute of Technology & Management', pageNumber: 1 },
+          referenceNumber: { value: 'JMC/FIRE/NOC/2025/3812', confidence: 0.97, sourceQuote: 'CFO Ref: JMC/FIRE/NOC/2025/3812', pageNumber: 1 },
+          issueDate: { value: '2025-10-20', confidence: 0.96, sourceQuote: 'Date of Issue: 20-Oct-2025', pageNumber: 1 },
+          expiryDate: { value: '2028-10-19', confidence: 0.98, sourceQuote: 'Valid Up to: 19-Oct-2028', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-8491-04',
+        documentType: 'STATE_GOVT_NOC',
+        title: 'State Government Technical Education Department NOC',
+        fileName: 'Govt_Rajasthan_DTE_NOC_2025.pdf',
+        fileSize: 1530200,
+        mimeType: 'application/pdf',
+        fileHash: '4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a',
+        uploadedAt: '2026-02-10T09:25:00Z',
+        extractedText: `GOVERNMENT OF RAJASTHAN - DEPARTMENT OF TECHNICAL EDUCATION
+SECRETARIAT, JAIPUR
+Notification No: DTE/RAJ/NOC/NEW-ENG/2025/1109
+Dated: 05-Dec-2025
+Subject: Grant of No Objection Certificate for starting New Degree Engineering College
+The Governor of Rajasthan is pleased to accord No Objection to Aryabhatta Shiksha Samiti for establishing Aryabhatta Institute of Technology & Management at Sitapura, Jaipur for academic session 2026-2027 with proposed B.Tech courses in Computer Science, AI & Data Science, Electronics, and Mechanical Engineering. State domicile reservation guidelines shall apply.`,
+        extractedFields: {
+          institutionName: { value: 'Aryabhatta Institute of Technology & Management', confidence: 0.99, sourceQuote: 'Aryabhatta Institute of Technology & Management at Sitapura', pageNumber: 1 },
+          trustName: { value: 'Aryabhatta Shiksha Samiti', confidence: 0.98, sourceQuote: 'Aryabhatta Shiksha Samiti for establishing', pageNumber: 1 },
+          referenceNumber: { value: 'DTE/RAJ/NOC/NEW-ENG/2025/1109', confidence: 0.97, sourceQuote: 'Notification No: DTE/RAJ/NOC/NEW-ENG/2025/1109', pageNumber: 1 },
+          issueDate: { value: '2025-12-05', confidence: 0.95, sourceQuote: 'Dated: 05-Dec-2025', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-8491-05',
+        documentType: 'AFFILIATING_UNIVERSITY_NOC',
+        title: 'Rajasthan Technical University (RTU) Affiliation NOC',
+        fileName: 'RTU_Kota_Affiliation_Consent_2026.pdf',
+        fileSize: 1620000,
+        mimeType: 'application/pdf',
+        fileHash: 'ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d',
+        uploadedAt: '2026-02-10T09:30:00Z',
+        extractedText: `RAJASTHAN TECHNICAL UNIVERSITY, KOTA
+BOARD OF AFFILIATION & INSPECTION
+Ref: RTU/AFF/NOC/2026/894 | Date: 12-Jan-2026
+LETTER OF CONSENT FOR PROVISIONAL AFFILIATION
+To: The Secretary, Aryabhatta Shiksha Samiti
+With reference to application dated 15-Nov-2025, RTU conveys provisional consent for affiliation to the proposed technical institution Aryabhatta Institute of Technology & Management, Sitapura, Jaipur for the Academic Year 2026-27 subject to final approval by AICTE. Curriculum syllabi and semester examination calendars will be governed by RTU regulations.`,
+        extractedFields: {
+          institutionName: { value: 'Aryabhatta Institute of Technology & Management', confidence: 0.98, sourceQuote: 'Aryabhatta Institute of Technology & Management, Sitapura, Jaipur', pageNumber: 1 },
+          trustName: { value: 'Aryabhatta Shiksha Samiti', confidence: 0.97, sourceQuote: 'The Secretary, Aryabhatta Shiksha Samiti', pageNumber: 1 },
+          referenceNumber: { value: 'RTU/AFF/NOC/2026/894', confidence: 0.96, sourceQuote: 'Ref: RTU/AFF/NOC/2026/894', pageNumber: 1 },
+          issueDate: { value: '2026-01-12', confidence: 0.94, sourceQuote: 'Date: 12-Jan-2026', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      }
+    ],
+    findings: [],
+    verificationRecords: [
+      {
+        id: 'VR-8491-01',
+        documentId: 'DOC-8491-01',
+        documentType: 'LAND_TITLE_DEED',
+        issuingAuthority: 'Department of Revenue & Land Registry, Govt. of Rajasthan',
+        referenceNumber: 'RJ-JPR-2025-10492',
+        submittedDetails: {
+          khasraNumber: '418/2',
+          area: '10.20 Acres',
+          owner: 'Aryabhatta Shiksha Samiti',
+        },
+        verificationMethod: 'SIMULATED_API',
+        status: 'VERIFIED',
+        verifiedAt: '2026-02-10T11:02:14Z',
+        sourceResponse: {
+          statusNote: 'Record matching online Dharani/ApnaKhata land registry.',
+          registryRecordFound: true,
+          authorizedSignatory: 'Sub-Registrar Sitapura (Digital Token Verified)',
+          validUntil: 'Permanent',
+        },
+        simulationBadge: true,
+      },
+      {
+        id: 'VR-8491-03',
+        documentId: 'DOC-8491-03',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        issuingAuthority: 'Jaipur Municipal Corporation - Fire Directorate',
+        referenceNumber: 'JMC/FIRE/NOC/2025/3812',
+        submittedDetails: {
+          institution: 'Aryabhatta Institute of Technology & Management',
+          validUntil: '2028-10-19',
+        },
+        verificationMethod: 'SIMULATED_API',
+        status: 'VERIFIED',
+        verifiedAt: '2026-02-10T11:02:18Z',
+        sourceResponse: {
+          statusNote: 'Active Fire NOC confirmed in Municipal Fire Services Portal.',
+          registryRecordFound: true,
+          authorizedSignatory: 'Divisional Fire Officer, Jaipur South',
+          validUntil: '2028-10-19',
+        },
+        simulationBadge: true,
+      },
+    ],
+    complianceChecks: [
+      {
+        ruleId: 'RULE-APH-LAND-01',
+        category: 'Land & Infrastructure',
+        title: 'Minimum Contiguous Land Norm (Urban Tech Institution)',
+        description: 'Requires minimum 7.5 contiguous acres in Mega/Metro or 10.0 acres in State Capital urban belt.',
+        requiredEvidence: 'Sub-Registrar registered Land Title Deed & non-encumbrance certificate.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'COMPLIANT',
+        explanation: 'Document DOC-8491-01 confirms 10.20 contiguous acres owned in Sitapura, surpassing the 10.0 acre urban requirement.',
+        supportingDocumentId: 'DOC-8491-01',
+        supportingQuote: 'measuring 10.20 Acres located at Khasra No. 418/2',
+      },
+      {
+        ruleId: 'RULE-APH-NOC-01',
+        category: 'Statutory NOCs',
+        title: 'State Government NOC for New Technical Institution',
+        description: 'Mandatory approval from state technical education directorate.',
+        requiredEvidence: 'State Government DTE Gazette Notification / Letter of Approval.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'COMPLIANT',
+        explanation: 'State DTE NOC (DTE/RAJ/NOC/NEW-ENG/2025/1109) verified with state records.',
+        supportingDocumentId: 'DOC-8491-04',
+        supportingQuote: 'Notification No: DTE/RAJ/NOC/NEW-ENG/2025/1109',
+      },
+      {
+        ruleId: 'RULE-APH-SAFETY-01',
+        category: 'Safety & Amenities',
+        title: 'Current Valid Fire & Life Safety Clearance',
+        description: 'Unexpired Fire NOC compliant with National Building Code 2016 Part IV.',
+        requiredEvidence: 'Municipal Fire Directorate NOC with unexpired validity.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'COMPLIANT',
+        explanation: 'Valid fire safety clearance active until 19-Oct-2028.',
+        supportingDocumentId: 'DOC-8491-03',
+        supportingQuote: 'Valid Up to: 19-Oct-2028',
+      }
+    ],
+    infrastructurePhotos: [
+      {
+        id: 'INFRA-8491-01',
+        title: 'Central Computing Center & AI Research Lab',
+        areaType: 'Computer Center',
+        imageUrl: '/images/demo/comp-center-clean.jpg',
+        uploadedAt: '2026-02-10T10:00:00Z',
+        detectedObjects: [
+          { label: 'Workstation Terminal', confidence: 0.96, box: [15, 10, 60, 45] },
+          { label: 'Workstation Terminal', confidence: 0.94, box: [15, 52, 60, 88] },
+          { label: 'Ceiling Smoke Detector', confidence: 0.88, box: [5, 42, 12, 48] },
+          { label: 'CO2 Fire Extinguisher', confidence: 0.92, box: [40, 92, 75, 98] },
+        ],
+        aiObservation: 'Detected 40+ structured computing terminals, fire protection extinguisher, and ceiling smoke detection sensors. Well-spaced layout with LAN trunking.',
+        reviewerNotes: 'Exceeds standard 1:4 student terminal ratio for initial 240 intake.',
+        recommendPhysicalInspection: false,
+      }
+    ],
+    auditTrail: [
+      {
+        id: 'AUD-8491-01',
+        timestamp: '2026-02-10T10:30:00Z',
+        actor: 'Applicant (Aryabhatta Shiksha Samiti)',
+        role: 'Applicant',
+        action: 'APPLICATION_SUBMITTED',
+        newValue: 'Submission completed with 5 documents',
+        remarks: 'Initial institutional portal submission',
+      },
+      {
+        id: 'AUD-8491-02',
+        timestamp: '2026-02-10T11:05:00Z',
+        actor: 'Rakshak AI Automated Pipeline',
+        role: 'System',
+        action: 'VALIDATION_EXECUTED',
+        previousValue: 'AWAITING_VALIDATION',
+        newValue: 'VALIDATED_CLEAN',
+        remarks: 'All 8 deterministic rules passed with zero anomalies.',
+      },
+      {
+        id: 'AUD-8491-03',
+        timestamp: '2026-02-11T14:20:00Z',
+        actor: 'Dr. V. K. Malhotra',
+        role: 'Senior Scrutiny Officer',
+        action: 'REVIEW_STATUS_UPDATED',
+        previousValue: 'PENDING_SCRUTINY',
+        newValue: 'RECOMMENDED_FOR_APPROVAL',
+        remarks: 'Scrutiny complete. All documents authenticated against revenue & fire department registries.',
+      }
+    ]
+  },
+
+  // =========================================================================
+  // SCENARIO 2: Application with a missing mandatory document
+  // =========================================================================
+  {
+    id: 'APP-2026-ENG-3042',
+    scenarioTag: 'scenario-2',
+    institutionName: 'Vidyapeeth Polytechnic College',
+    institutionType: 'Polytechnic Diploma',
+    applicationCategory: 'Extension of Approval (EoA)',
+    trustName: 'Vidyapeeth Educational Foundation',
+    establishmentYear: 2018,
+    state: 'Madhya Pradesh',
+    district: 'Gwalior',
+    address: 'Gwalior By-pass Road, Maharajpura, Gwalior',
+    pinCode: '474020',
+    contactEmail: 'principal@vidyapeeth-poly.ac.in',
+    contactPhone: '+91-751-2489100',
+    submissionDate: '2026-02-12T14:15:00Z',
+    academicYear: '2026-2027',
+    validationStatus: 'VALIDATION_WARNINGS',
+    verificationStatus: 'PARTIALLY_VERIFIED',
+    reviewStatus: 'CLARIFICATION_REQUESTED',
+    assignedOfficer: 'Smt. Anita Sharma (Technical Officer)',
+    documents: [
+      // Note: LAND_TITLE_DEED is intentionally omitted!
+      {
+        id: 'DOC-3042-01',
+        documentType: 'BUILDING_PLAN_APPROVAL',
+        title: 'Municipal Building Sanction Letter',
+        fileName: 'Gwalior_Municipal_Building_Sanction.pdf',
+        fileSize: 3100400,
+        mimeType: 'application/pdf',
+        fileHash: '8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4',
+        uploadedAt: '2026-02-12T13:40:00Z',
+        extractedText: `GWALIOR MUNICIPAL CORPORATION - TOWN PLANNING CELL
+Approval Letter No: GMC/TP/2021/4481
+Approved for Vidyapeeth Polytechnic College, promoted by Vidyapeeth Educational Foundation.
+Total area sanctioned: 12,400 sq.m for Diploma Wing.`,
+        extractedFields: {
+          institutionName: { value: 'Vidyapeeth Polytechnic College', confidence: 0.97, sourceQuote: 'Approved for Vidyapeeth Polytechnic College', pageNumber: 1 },
+          referenceNumber: { value: 'GMC/TP/2021/4481', confidence: 0.95, sourceQuote: 'Approval Letter No: GMC/TP/2021/4481', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-3042-02',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        title: 'Fire Safety Clearance Certificate',
+        fileName: 'MP_Fire_Safety_Certificate_2025.pdf',
+        fileSize: 1720000,
+        mimeType: 'application/pdf',
+        fileHash: '9a92444369a4c84a5ff883df18c3ffea8d0e74b3fd001ff2a5efbc3e430f8921',
+        uploadedAt: '2026-02-12T13:42:00Z',
+        extractedText: `OFFICE OF JOINT DIRECTOR FIRE SERVICES - GWALIOR DIVISION
+Ref: FSO/GWL/2025/112 | Issued: 02-Jul-2025 | Valid Until: 01-Jul-2028
+Certified that Vidyapeeth Polytechnic College has satisfied fire prevention norms.`,
+        extractedFields: {
+          institutionName: { value: 'Vidyapeeth Polytechnic College', confidence: 0.96, sourceQuote: 'Vidyapeeth Polytechnic College has satisfied', pageNumber: 1 },
+          expiryDate: { value: '2028-07-01', confidence: 0.97, sourceQuote: 'Valid Until: 01-Jul-2028', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-3042-03',
+        documentType: 'STATE_GOVT_NOC',
+        title: 'Directorate of Technical Education MP Continuation NOC',
+        fileName: 'MP_DTE_Continuation_NOC_2026.pdf',
+        fileSize: 1400000,
+        mimeType: 'application/pdf',
+        fileHash: '1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b',
+        uploadedAt: '2026-02-12T13:45:00Z',
+        extractedText: `GOVERNMENT OF MADHYA PRADESH - DTE BHOPAL
+Order No: DTE/MP/POLY/CONT/2026/0921 | Date: 15-Jan-2026
+Continuation NOC granted to Vidyapeeth Polytechnic College for 2026-27.`,
+        extractedFields: {
+          institutionName: { value: 'Vidyapeeth Polytechnic College', confidence: 0.98, sourceQuote: 'Vidyapeeth Polytechnic College', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      }
+    ],
+    findings: [
+      {
+        id: 'FND-3042-01',
+        ruleId: 'RULE_DOC_MANDATORY',
+        severity: 'CRITICAL',
+        category: 'DOCUMENT_PRESENCE',
+        title: 'Mandatory Document Missing: Registered Land Title Deed',
+        explanation: 'AICTE Approval Process Handbook mandates submission of a registered ownership deed or perpetual lease deed for institutional land. No document of type LAND_TITLE_DEED was uploaded in the application submission package.',
+        evidence: {
+          fieldName: 'LAND_TITLE_DEED',
+          expectedValue: 'Registered Land Ownership / Conveyance Deed',
+          extractedValue: 'NOT_FOUND',
+          excerpt: 'Application contains 3 documents, but LAND_TITLE_DEED is missing from required 4 document slots for Polytechnic Extension of Approval.',
+        },
+        recommendedAction: 'Issue formal Notice for Clarification / Document Resubmission to the applicant with a 7-day compliance window before committee review.',
+        timestamp: '2026-02-12T14:16:10Z',
+        reviewStatus: 'OPEN',
+      }
+    ],
+    verificationRecords: [
+      {
+        id: 'VR-3042-01',
+        documentId: 'DOC-3042-02',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        issuingAuthority: 'MP State Fire Directorate',
+        referenceNumber: 'FSO/GWL/2025/112',
+        submittedDetails: { institution: 'Vidyapeeth Polytechnic College', validUntil: '2028-07-01' },
+        verificationMethod: 'SIMULATED_API',
+        status: 'VERIFIED',
+        verifiedAt: '2026-02-12T14:20:00Z',
+        sourceResponse: {
+          statusNote: 'Match verified against MP Fire safety registry.',
+          registryRecordFound: true,
+          validUntil: '2028-07-01',
+        },
+        simulationBadge: true,
+      }
+    ],
+    complianceChecks: [
+      {
+        ruleId: 'RULE-APH-LAND-01',
+        category: 'Land & Infrastructure',
+        title: 'Land Ownership Verification',
+        description: 'Verification of registered land deed or 30-year lease for polytechnic campus.',
+        requiredEvidence: 'Sub-Registrar certified land title document.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'PENDING_DOCUMENT',
+        explanation: 'Cannot evaluate land ownership norms because Land Title Deed was not uploaded.',
+      }
+    ],
+    infrastructurePhotos: [],
+    auditTrail: [
+      {
+        id: 'AUD-3042-01',
+        timestamp: '2026-02-12T14:15:00Z',
+        actor: 'Applicant (Vidyapeeth Educational Foundation)',
+        role: 'Applicant',
+        action: 'APPLICATION_SUBMITTED',
+        newValue: 'Submitted with 3 documents',
+        remarks: 'Application submitted without Land Title Deed attachment',
+      },
+      {
+        id: 'AUD-3042-02',
+        timestamp: '2026-02-12T14:16:10Z',
+        actor: 'Rakshak AI Automated Pipeline',
+        role: 'System',
+        action: 'FINDING_GENERATED',
+        newValue: 'FND-3042-01 (CRITICAL: Mandatory Document Missing)',
+        remarks: 'Automated checklist engine detected missing Land Title Deed',
+      },
+      {
+        id: 'AUD-3042-03',
+        timestamp: '2026-02-13T09:40:00Z',
+        actor: 'Smt. Anita Sharma',
+        role: 'Technical Officer',
+        action: 'CLARIFICATION_REQUESTED',
+        previousValue: 'PENDING_SCRUTINY',
+        newValue: 'CLARIFICATION_REQUESTED',
+        remarks: 'Issued portal notice to submit registered land title deed before scrutiny committee convenes.',
+      }
+    ]
+  },
+
+  // =========================================================================
+  // SCENARIO 3: Application containing an expired certificate
+  // =========================================================================
+  {
+    id: 'APP-2026-ENG-9182',
+    scenarioTag: 'scenario-3',
+    institutionName: 'Saraswati College of Engineering & Research',
+    institutionType: 'Engineering & Technology',
+    applicationCategory: 'Increase in Approved Intake',
+    trustName: 'Saraswati Vidya Pratishthan',
+    establishmentYear: 2012,
+    state: 'Maharashtra',
+    district: 'Pune',
+    address: 'Survey No. 48/1A, Talegaon Dabhade, Pune',
+    pinCode: '410507',
+    contactEmail: 'admissions@saraswati-engg.ac.in',
+    contactPhone: '+91-2114-263300',
+    submissionDate: '2026-02-14T11:00:00Z',
+    academicYear: '2026-2027',
+    validationStatus: 'ANOMALIES_DETECTED',
+    verificationStatus: 'MISMATCH_DETECTED',
+    reviewStatus: 'UNDER_REVIEW',
+    assignedOfficer: 'Shri R. P. Deshmukh (Regional Scrutiny Officer)',
+    documents: [
+      {
+        id: 'DOC-9182-01',
+        documentType: 'LAND_TITLE_DEED',
+        title: 'Registered Campus Conveyance Deed',
+        fileName: 'Saraswati_Talegaon_Land_Conveyance.pdf',
+        fileSize: 2890000,
+        mimeType: 'application/pdf',
+        fileHash: 'c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8',
+        uploadedAt: '2026-02-14T10:15:00Z',
+        extractedText: `OFFICE OF SUB-REGISTRAR MAVAL / PUNE
+Reg No: MH-PUN-2012-9982 | Date: 14-Jul-2012
+Conveyance of 12.5 Acres in favor of Saraswati Vidya Pratishthan for Saraswati College of Engineering & Research. Perpetual title confirmed.`,
+        extractedFields: {
+          institutionName: { value: 'Saraswati College of Engineering & Research', confidence: 0.98, sourceQuote: 'Saraswati College of Engineering & Research', pageNumber: 1 },
+          registrationNumber: { value: 'MH-PUN-2012-9982', confidence: 0.96, sourceQuote: 'Reg No: MH-PUN-2012-9982', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-9182-02',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        title: 'PMRDA Fire Safety Compliance Certificate (EXPIRED)',
+        fileName: 'PMRDA_Fire_Safety_NOC_Expired_2026.pdf',
+        fileSize: 1980000,
+        mimeType: 'application/pdf',
+        fileHash: 'f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3',
+        uploadedAt: '2026-02-14T10:20:00Z',
+        extractedText: `PUNE METROPOLITAN REGION DEVELOPMENT AUTHORITY (PMRDA)
+FIRE PREVENTION & LIFE SAFETY WING
+Certificate Ref: PMRDA/FIRE/2023/REC/1044
+Issued to: Saraswati College of Engineering & Research, Talegaon, Pune
+Inspected on: 10-Jan-2023
+Date of Issue: 16-Jan-2023
+Valid Through: 15-Jan-2026 (Validity 3 Years)
+WARNING: Failure to renew prior to expiry shall render premises unauthorized for student assembly under Maharashtra Fire Act.`,
+        extractedFields: {
+          institutionName: { value: 'Saraswati College of Engineering & Research', confidence: 0.98, sourceQuote: 'Issued to: Saraswati College of Engineering & Research', pageNumber: 1 },
+          referenceNumber: { value: 'PMRDA/FIRE/2023/REC/1044', confidence: 0.97, sourceQuote: 'Certificate Ref: PMRDA/FIRE/2023/REC/1044', pageNumber: 1 },
+          issueDate: { value: '2023-01-16', confidence: 0.96, sourceQuote: 'Date of Issue: 16-Jan-2023', pageNumber: 1 },
+          expiryDate: { value: '2026-01-15', confidence: 0.99, sourceQuote: 'Valid Through: 15-Jan-2026', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'FLAGGED',
+      },
+      {
+        id: 'DOC-9182-03',
+        documentType: 'STATE_GOVT_NOC',
+        title: 'Maharashtra Higher & Technical Education NOC',
+        fileName: 'Maha_Govt_Technical_Edu_NOC.pdf',
+        fileSize: 1540000,
+        mimeType: 'application/pdf',
+        fileHash: '5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f',
+        uploadedAt: '2026-02-14T10:25:00Z',
+        extractedText: `GOVERNMENT OF MAHARASHTRA - HIGHER & TECHNICAL EDUCATION DEPT
+Mantralaya, Mumbai-400032
+Resolution No: TEM-2025/CR-88/TE-4 | Date: 10-Nov-2025
+State NOC granted for increase in intake in B.Tech Computer Engineering (from 120 to 180 seats) for Saraswati College of Engineering & Research.`,
+        extractedFields: {
+          institutionName: { value: 'Saraswati College of Engineering & Research', confidence: 0.98, sourceQuote: 'Saraswati College of Engineering & Research', pageNumber: 1 },
+          referenceNumber: { value: 'TEM-2025/CR-88/TE-4', confidence: 0.97, sourceQuote: 'Resolution No: TEM-2025/CR-88/TE-4', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      }
+    ],
+    findings: [
+      {
+        id: 'FND-9182-01',
+        ruleId: 'RULE_CERT_EXPIRY',
+        severity: 'CRITICAL',
+        category: 'EXPIRY',
+        title: 'Expired Statutory Certificate: Fire & Life Safety NOC',
+        explanation: 'Deterministic date validation detected that the submitted PMRDA Fire Safety Certificate expired on 15-Jan-2026. The submission date is 14-Feb-2026. Under AICTE APH Regulations 2026-27 Clause 4.2(d), applications for increase in intake cannot be granted without an active, unexpired Fire Safety clearance.',
+        evidence: {
+          documentId: 'DOC-9182-02',
+          documentName: 'PMRDA_Fire_Safety_NOC_Expired_2026.pdf',
+          fieldName: 'expiryDate',
+          extractedValue: '2026-01-15',
+          expectedValue: 'Current / Future Date (>= 2026-02-14)',
+          excerpt: 'Valid Through: 15-Jan-2026 (Validity 3 Years). Expired 30 days prior to submission.',
+          pageNumber: 1,
+        },
+        recommendedAction: 'Require the applicant to upload an official renewal receipt or updated Fire NOC from PMRDA before intake expansion is tabled for committee decision.',
+        timestamp: '2026-02-14T11:02:40Z',
+        reviewStatus: 'OPEN',
+      }
+    ],
+    verificationRecords: [
+      {
+        id: 'VR-9182-01',
+        documentId: 'DOC-9182-02',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        issuingAuthority: 'PMRDA Fire Prevention Department',
+        referenceNumber: 'PMRDA/FIRE/2023/REC/1044',
+        submittedDetails: {
+          institution: 'Saraswati College of Engineering & Research',
+          validThrough: '2026-01-15',
+        },
+        verificationMethod: 'SIMULATED_API',
+        status: 'EXPIRED',
+        verifiedAt: '2026-02-14T11:05:12Z',
+        sourceResponse: {
+          statusNote: 'Certificate expired in municipal database on 15-Jan-2026. No pending renewal detected in system.',
+          registryRecordFound: true,
+          validUntil: '2026-01-15 (EXPIRED)',
+        },
+        simulationBadge: true,
+      }
+    ],
+    complianceChecks: [
+      {
+        ruleId: 'RULE-APH-SAFETY-01',
+        category: 'Safety & Amenities',
+        title: 'Fire Safety Certificate Validity Norm',
+        description: 'Mandatory valid, unexpired Fire NOC from competent municipal or state authority.',
+        requiredEvidence: 'Valid Fire NOC.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'NON_COMPLIANT',
+        explanation: 'Fire Safety Certificate DOC-9182-02 expired on 15-Jan-2026.',
+        supportingDocumentId: 'DOC-9182-02',
+        supportingQuote: 'Valid Through: 15-Jan-2026',
+      }
+    ],
+    infrastructurePhotos: [],
+    auditTrail: [
+      {
+        id: 'AUD-9182-01',
+        timestamp: '2026-02-14T11:00:00Z',
+        actor: 'Applicant (Saraswati Vidya Pratishthan)',
+        role: 'Applicant',
+        action: 'APPLICATION_SUBMITTED',
+        newValue: 'Submitted intake expansion application',
+        remarks: 'Intake increase request for B.Tech CS (+60 seats)',
+      },
+      {
+        id: 'AUD-9182-02',
+        timestamp: '2026-02-14T11:02:40Z',
+        actor: 'Rakshak AI Automated Pipeline',
+        role: 'System',
+        action: 'FINDING_GENERATED',
+        newValue: 'FND-9182-01 (CRITICAL: Fire Safety Certificate Expired)',
+        remarks: 'Automated temporal rule identified expired certificate',
+      }
+    ]
+  },
+
+  // =========================================================================
+  // SCENARIO 4: Inconsistent institution names / registration identifiers across documents
+  // =========================================================================
+  {
+    id: 'APP-2026-ENG-5120',
+    scenarioTag: 'scenario-4',
+    institutionName: 'Drona Academy of Applied Sciences',
+    institutionType: 'Engineering & Technology',
+    applicationCategory: 'New Technical Institution',
+    trustName: 'Drona Educational Trust',
+    establishmentYear: 2025,
+    state: 'Karnataka',
+    district: 'Bengaluru Urban',
+    address: 'Survey 112, Nelamangala Road, Bengaluru',
+    pinCode: '562123',
+    contactEmail: 'contact@drona-academy.ac.in',
+    contactPhone: '+91-80-29984110',
+    submissionDate: '2026-02-16T09:30:00Z',
+    academicYear: '2026-2027',
+    validationStatus: 'ANOMALIES_DETECTED',
+    verificationStatus: 'MISMATCH_DETECTED',
+    reviewStatus: 'UNDER_REVIEW',
+    assignedOfficer: 'Dr. Ramesh Kumar (Scrutiny Member)',
+    documents: [
+      {
+        id: 'DOC-5120-01',
+        documentType: 'TRUST_SOCIETY_REGISTRATION',
+        title: 'Registered Trust Deed & Society Certificate',
+        fileName: 'Karnataka_Trust_Registration_DET.pdf',
+        fileSize: 2200500,
+        mimeType: 'application/pdf',
+        fileHash: '4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b',
+        uploadedAt: '2026-02-16T09:00:00Z',
+        extractedText: `OFFICE OF THE REGISTRAR OF SOCIETIES - BENGALURU URBAN
+CERTIFICATE OF REGISTRATION UNDER KARNATAKA SOCIETIES REGISTRATION ACT 1960
+Registration Number: DET-4491-BLR/2024
+Trust Name: Drona Educational Trust
+Address: No. 44, Rajajinagar 3rd Block, Bengaluru - 560010
+Registered to establish and govern technical training institutions including Drona Academy of Applied Sciences.
+Date of Registration: 18-May-2024`,
+        extractedFields: {
+          institutionName: { value: 'Drona Academy of Applied Sciences', confidence: 0.95, sourceQuote: 'including Drona Academy of Applied Sciences', pageNumber: 1 },
+          trustName: { value: 'Drona Educational Trust', confidence: 0.99, sourceQuote: 'Trust Name: Drona Educational Trust', pageNumber: 1 },
+          registrationNumber: { value: 'DET-4491-BLR/2024', confidence: 0.97, sourceQuote: 'Registration Number: DET-4491-BLR/2024', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-5120-02',
+        documentType: 'LAND_TITLE_DEED',
+        title: 'Sale Deed for Nelamangala Campus',
+        fileName: 'Sale_Deed_Nelamangala_Land.pdf',
+        fileSize: 3450000,
+        mimeType: 'application/pdf',
+        fileHash: '8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c',
+        uploadedAt: '2026-02-16T09:05:00Z',
+        extractedText: `GOVERNMENT OF KARNATAKA - DEPARTMENT OF STAMPS & REGISTRATION
+SUB-REGISTRAR NELAMANGALA
+Document No: BLR-NLM-2024-8114 | Date: 12-Sep-2024
+Purchaser: Drona Educational Trust (Reg No: DET-4491-BLR/2024)
+Extent: 8.50 Acres at Sy No 112, Nelamangala for Drona Academy of Applied Sciences.`,
+        extractedFields: {
+          institutionName: { value: 'Drona Academy of Applied Sciences', confidence: 0.96, sourceQuote: 'Drona Academy of Applied Sciences', pageNumber: 1 },
+          trustName: { value: 'Drona Educational Trust', confidence: 0.98, sourceQuote: 'Purchaser: Drona Educational Trust', pageNumber: 1 },
+          registrationNumber: { value: 'DET-4491-BLR/2024', confidence: 0.97, sourceQuote: 'Reg No: DET-4491-BLR/2024', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-5120-03',
+        documentType: 'STATE_GOVT_NOC',
+        title: 'Karnataka DTE State Clearance NOC (INCONSISTENT)',
+        fileName: 'Karnataka_Govt_DTE_NOC_Discrepancy.pdf',
+        fileSize: 1820000,
+        mimeType: 'application/pdf',
+        fileHash: '9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d',
+        uploadedAt: '2026-02-16T09:12:00Z',
+        extractedText: `GOVERNMENT OF KARNATAKA - HIGHER EDUCATION DEPARTMENT
+M.S. BUILDING, BENGALURU - 560001
+Notification No: ED-312-TEC-2025 | Date: 08-Jan-2026
+NO OBJECTION CERTIFICATE
+Sanction is hereby accorded to Drona Vidya Samiti (Society Reg: DVS-9912-BLR/2022) to establish a new technical degree college named Dronacharya Institute of Engineering & Technology at Nelamangala, Bengaluru for the year 2026-27.`,
+        extractedFields: {
+          institutionName: { value: 'Dronacharya Institute of Engineering & Technology', confidence: 0.97, sourceQuote: 'named Dronacharya Institute of Engineering & Technology', pageNumber: 1 },
+          trustName: { value: 'Drona Vidya Samiti', confidence: 0.98, sourceQuote: 'accorded to Drona Vidya Samiti', pageNumber: 1 },
+          registrationNumber: { value: 'DVS-9912-BLR/2022', confidence: 0.96, sourceQuote: 'Society Reg: DVS-9912-BLR/2022', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'FLAGGED',
+      }
+    ],
+    findings: [
+      {
+        id: 'FND-5120-01',
+        ruleId: 'RULE_NAME_CONSISTENCY',
+        severity: 'CRITICAL',
+        category: 'DATA_MISMATCH',
+        title: 'Cross-Document Institution Name Mismatch',
+        explanation: 'Extracted institution name in State Govt NOC ("Dronacharya Institute of Engineering & Technology") contradicts the application registry and Land Title Deed name ("Drona Academy of Applied Sciences"). Similarity index: 61.4% (Threshold: 85%).',
+        evidence: {
+          documentId: 'DOC-5120-03',
+          documentName: 'Karnataka_Govt_DTE_NOC_Discrepancy.pdf',
+          fieldName: 'institutionName',
+          extractedValue: 'Dronacharya Institute of Engineering & Technology',
+          expectedValue: 'Drona Academy of Applied Sciences',
+          excerpt: 'Sanction is hereby accorded to establish a new technical degree college named Dronacharya Institute of Engineering & Technology',
+          pageNumber: 1,
+        },
+        recommendedAction: 'Verify whether a name amendment gazette exists, or if a wrong NOC document was submitted by the applicant.',
+        timestamp: '2026-02-16T09:32:15Z',
+        reviewStatus: 'OPEN',
+      },
+      {
+        id: 'FND-5120-02',
+        ruleId: 'RULE_REG_CONSISTENCY',
+        severity: 'CRITICAL',
+        category: 'DATA_MISMATCH',
+        title: 'Cross-Document Sponsoring Trust & Registration ID Mismatch',
+        explanation: 'Trust Deed (DOC-5120-01) certifies "Drona Educational Trust" with Registration ID DET-4491-BLR/2024. However, the State Govt NOC (DOC-5120-03) is issued to "Drona Vidya Samiti" with Registration ID DVS-9912-BLR/2022. Sponsoring entity inconsistency detected across legal documents.',
+        evidence: {
+          documentId: 'DOC-5120-03',
+          documentName: 'Karnataka_Govt_DTE_NOC_Discrepancy.pdf',
+          fieldName: 'registrationNumber',
+          extractedValue: 'DVS-9912-BLR/2022 (Drona Vidya Samiti)',
+          expectedValue: 'DET-4491-BLR/2024 (Drona Educational Trust)',
+          excerpt: 'Sanction is hereby accorded to Drona Vidya Samiti (Society Reg: DVS-9912-BLR/2022)',
+          pageNumber: 1,
+        },
+        recommendedAction: 'Summon applicant for legal verification before the Regional Scrutiny Committee.',
+        timestamp: '2026-02-16T09:32:15Z',
+        reviewStatus: 'OPEN',
+      }
+    ],
+    verificationRecords: [
+      {
+        id: 'VR-5120-01',
+        documentId: 'DOC-5120-03',
+        documentType: 'STATE_GOVT_NOC',
+        issuingAuthority: 'Karnataka Higher Education Secretariat',
+        referenceNumber: 'ED-312-TEC-2025',
+        submittedDetails: {
+          applicantClaimedInstitution: 'Drona Academy of Applied Sciences',
+          documentInstitution: 'Dronacharya Institute of Engineering & Technology',
+        },
+        verificationMethod: 'SIMULATED_API',
+        status: 'MISMATCH_DETECTED',
+        verifiedAt: '2026-02-16T09:35:44Z',
+        sourceResponse: {
+          statusNote: 'NOC file ED-312-TEC-2025 in Karnataka Higher Education database is recorded under Dronacharya Institute of Engineering & Technology, NOT Drona Academy of Applied Sciences.',
+          registryRecordFound: true,
+          authorizedSignatory: 'Under Secretary to Govt, Higher Education',
+        },
+        simulationBadge: true,
+      }
+    ],
+    complianceChecks: [
+      {
+        ruleId: 'RULE-APH-NOC-01',
+        category: 'Statutory NOCs',
+        title: 'State Government NOC Authenticity Norm',
+        description: 'Exact match between applicant institution and state clearance certificate.',
+        requiredEvidence: 'State Government NOC matching registered applicant entity.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'NON_COMPLIANT',
+        explanation: 'State NOC references a different institutional title and different trust society registration ID.',
+        supportingDocumentId: 'DOC-5120-03',
+        supportingQuote: 'named Dronacharya Institute of Engineering & Technology',
+      }
+    ],
+    infrastructurePhotos: [],
+    auditTrail: [
+      {
+        id: 'AUD-5120-01',
+        timestamp: '2026-02-16T09:30:00Z',
+        actor: 'Applicant (Drona Educational Trust)',
+        role: 'Applicant',
+        action: 'APPLICATION_SUBMITTED',
+        newValue: 'Submitted application with 3 documents',
+        remarks: 'New technical institution application submitted',
+      },
+      {
+        id: 'AUD-5120-02',
+        timestamp: '2026-02-16T09:32:15Z',
+        actor: 'Rakshak AI Automated Pipeline',
+        role: 'System',
+        action: 'FINDING_GENERATED',
+        newValue: 'FND-5120-01 & FND-5120-02 (CRITICAL: Name & Registration Mismatches)',
+        remarks: 'Cross-document entity consistency validator flagged discrepancies',
+      }
+    ]
+  },
+
+  // =========================================================================
+  // SCENARIO 5: Application with a possible duplicate document or unresolved issuing-authority verification
+  // =========================================================================
+  {
+    id: 'APP-2026-ENG-7731',
+    scenarioTag: 'scenario-5',
+    institutionName: 'Kalinga Institute of Advanced Computing',
+    institutionType: 'Engineering & Technology',
+    applicationCategory: 'Introduction of New Course/Program',
+    trustName: 'Kalinga Pragati Education Trust',
+    establishmentYear: 2019,
+    state: 'Odisha',
+    district: 'Bhubaneswar (Khordha)',
+    address: 'Plot 49, Infocity II, Chandaka, Bhubaneswar',
+    pinCode: '751024',
+    contactEmail: 'director@kalinga-iac.edu.in',
+    contactPhone: '+91-674-2741990',
+    submissionDate: '2026-02-18T16:00:00Z',
+    academicYear: '2026-2027',
+    validationStatus: 'ANOMALIES_DETECTED',
+    verificationStatus: 'PENDING',
+    reviewStatus: 'RECOMMENDED_FOR_PHYSICAL_INSPECTION',
+    assignedOfficer: 'Shri B. N. Panda (Regional Officer, Eastern Region)',
+    documents: [
+      {
+        id: 'DOC-7731-01',
+        documentType: 'LAND_TITLE_DEED',
+        title: 'IDCO Land Allotment & Lease Deed',
+        fileName: 'Odisha_IDCO_Chandaka_Lease_Deed.pdf',
+        fileSize: 2150000,
+        mimeType: 'application/pdf',
+        fileHash: '7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b',
+        uploadedAt: '2026-02-18T15:20:00Z',
+        extractedText: `ODISHA INDUSTRIAL INFRASTRUCTURE DEVELOPMENT CORPORATION (IDCO)
+BHUBANESWAR
+Allotment Order: IDCO/LAND/INFOC-II/2019/3310
+Allottee: Kalinga Pragati Education Trust for Kalinga Institute of Advanced Computing.
+99-Year Perpetual Lease of 6.2 Acres at Infocity II, Chandaka, Bhubaneswar.`,
+        extractedFields: {
+          institutionName: { value: 'Kalinga Institute of Advanced Computing', confidence: 0.98, sourceQuote: 'for Kalinga Institute of Advanced Computing', pageNumber: 1 },
+          registrationNumber: { value: 'IDCO/LAND/INFOC-II/2019/3310', confidence: 0.96, sourceQuote: 'Allotment Order: IDCO/LAND/INFOC-II/2019/3310', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      },
+      {
+        id: 'DOC-7731-02',
+        documentType: 'BUILDING_PLAN_APPROVAL',
+        title: 'BDA Approved Building Plan (DUPLICATE HASH DETECTED)',
+        fileName: 'BDA_Sanction_Plan_Block_C.pdf',
+        fileSize: 4194304,
+        mimeType: 'application/pdf',
+        // INTENTIONAL DUPLICATE: exact same SHA-256 hash as DOC-8491-02 from Aryabhatta Institute!
+        fileHash: 'a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e',
+        uploadedAt: '2026-02-18T15:25:00Z',
+        extractedText: `JAIPUR DEVELOPMENT AUTHORITY (JDA) - TOWN PLANNING DIRECTORATE
+SANCTION ORDER & BUILDING PLAN APPROVAL
+Sanction File Ref: JDA/BPC/2025/ENG/9904 | Date of Sanction: 14-Aug-2025
+Approved for: Aryabhatta Institute of Technology & Management
+Promoted by: Aryabhatta Shiksha Samiti`,
+        extractedFields: {
+          institutionName: { value: 'Aryabhatta Institute of Technology & Management', confidence: 0.99, sourceQuote: 'Approved for: Aryabhatta Institute of Technology & Management', pageNumber: 1 },
+          referenceNumber: { value: 'JDA/BPC/2025/ENG/9904', confidence: 0.98, sourceQuote: 'Sanction File Ref: JDA/BPC/2025/ENG/9904', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'FLAGGED',
+      },
+      {
+        id: 'DOC-7731-03',
+        documentType: 'FIRE_SAFETY_CERTIFICATE',
+        title: 'Directorate of Fire Services Odisha Fire Safety Certificate',
+        fileName: 'Odisha_Fire_Safety_NOC_2025.pdf',
+        fileSize: 1880000,
+        mimeType: 'application/pdf',
+        fileHash: '3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5f4e3d2c',
+        uploadedAt: '2026-02-18T15:30:00Z',
+        extractedText: `DIRECTORATE GENERAL OF FIRE SERVICES - ODISHA, CUTTACK
+FSO Ref: DFS/OD/FP/2025/8921 | Date: 11-Aug-2025
+Fire Safety Certificate for Kalinga Institute of Advanced Computing, Chandaka, Bhubaneswar.
+Valid until: 10-Aug-2028.`,
+        extractedFields: {
+          institutionName: { value: 'Kalinga Institute of Advanced Computing', confidence: 0.97, sourceQuote: 'Kalinga Institute of Advanced Computing', pageNumber: 1 },
+          referenceNumber: { value: 'DFS/OD/FP/2025/8921', confidence: 0.96, sourceQuote: 'FSO Ref: DFS/OD/FP/2025/8921', pageNumber: 1 },
+        },
+        isMandatory: true,
+        status: 'VERIFIED',
+      }
+    ],
+    findings: [
+      {
+        id: 'FND-7731-01',
+        ruleId: 'RULE_DUPLICATE_HASH',
+        severity: 'CRITICAL',
+        category: 'DUPLICATE',
+        title: 'Cryptographic Duplicate Document Detected Across Applications',
+        explanation: 'Submitted document "BDA_Sanction_Plan_Block_C.pdf" has identical SHA-256 binary hash (a591a6d40bf...) to document DOC-8491-02 submitted by another institution ("Aryabhatta Institute of Technology & Management", Rajasthan). Text extraction reveals the submitted file belongs to Jaipur Development Authority, not Bhubaneswar Development Authority.',
+        evidence: {
+          documentId: 'DOC-7731-02',
+          documentName: 'BDA_Sanction_Plan_Block_C.pdf',
+          fieldName: 'fileHash',
+          extractedValue: 'a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e',
+          duplicateWithAppId: 'APP-2026-ENG-8491',
+          excerpt: 'Exact byte-level duplicate of JDA_Approved_Building_Plan_Sanction.pdf from Aryabhatta Institute.',
+        },
+        recommendedAction: 'Immediate referral to the Standing Hearing Committee (SHC) and initiation of Surprise Physical Inspection.',
+        timestamp: '2026-02-18T16:02:10Z',
+        reviewStatus: 'OPEN',
+      },
+      {
+        id: 'FND-7731-02',
+        ruleId: 'RULE_VERIF_OUTAGE',
+        severity: 'WARNING',
+        category: 'COMPLIANCE_GAP',
+        title: 'Issuing Authority Verification Unresolved (Source System Unavailable)',
+        explanation: 'Simulated API verification to Bhubaneswar Development Authority (BDA) Town Planning Portal returned HTTP 503 / Source System Maintenance. Verification could not be finalized electronically.',
+        evidence: {
+          documentId: 'DOC-7731-02',
+          fieldName: 'verificationStatus',
+          extractedValue: 'SOURCE_UNAVAILABLE',
+          expectedValue: 'VERIFIED',
+          excerpt: 'BDA Server endpoint /api/v2/sanctions/verify returned 503 Service Unavailable (Planned Maintenance).',
+        },
+        recommendedAction: 'Re-trigger verification when external portal returns online or conduct manual physical seal scrutiny.',
+        timestamp: '2026-02-18T16:05:30Z',
+        reviewStatus: 'OPEN',
+      }
+    ],
+    verificationRecords: [
+      {
+        id: 'VR-7731-01',
+        documentId: 'DOC-7731-02',
+        documentType: 'BUILDING_PLAN_APPROVAL',
+        issuingAuthority: 'Bhubaneswar Development Authority (BDA) / Municipal PWD',
+        referenceNumber: 'BDA/TP/2025/OD/9110',
+        submittedDetails: {
+          claimedAuthority: 'Bhubaneswar Development Authority',
+          actualFileHeader: 'Jaipur Development Authority',
+        },
+        verificationMethod: 'SIMULATED_API',
+        status: 'SOURCE_UNAVAILABLE',
+        verifiedAt: '2026-02-18T16:05:00Z',
+        sourceResponse: {
+          statusNote: 'External Issuing Authority API responded: Service Unavailable / Timeout.',
+          registryRecordFound: false,
+          rawPayload: { httpCode: 503, message: 'Source registry endpoint undergoing scheduled downtime.' }
+        },
+        simulationBadge: true,
+      }
+    ],
+    complianceChecks: [
+      {
+        ruleId: 'RULE-APH-BLDG-01',
+        category: 'Land & Infrastructure',
+        title: 'Competent Authority Building Plan Sanction',
+        description: 'Approved structural plan and occupancy certificate by local municipal development authority.',
+        requiredEvidence: 'Sanction letter with valid municipal seal and built-up area breakdown.',
+        effectiveDate: '2025-01-01',
+        ruleVersion: 'APH-2025-27-v1.4',
+        result: 'NON_COMPLIANT',
+        explanation: 'Document contains duplicate file submitted under different institution in Rajasthan.',
+        supportingDocumentId: 'DOC-7731-02',
+        supportingQuote: 'Approved for: Aryabhatta Institute of Technology & Management',
+      }
+    ],
+    infrastructurePhotos: [],
+    auditTrail: [
+      {
+        id: 'AUD-7731-01',
+        timestamp: '2026-02-18T16:00:00Z',
+        actor: 'Applicant (Kalinga Pragati Education Trust)',
+        role: 'Applicant',
+        action: 'APPLICATION_SUBMITTED',
+        newValue: 'Submitted course introduction application',
+        remarks: 'Submitted for new M.Tech in Data Science',
+      },
+      {
+        id: 'AUD-7731-02',
+        timestamp: '2026-02-18T16:02:10Z',
+        actor: 'Rakshak AI Automated Pipeline',
+        role: 'System',
+        action: 'FINDING_GENERATED',
+        newValue: 'FND-7731-01 (CRITICAL: Duplicate Document Hash Detected)',
+        remarks: 'SHA-256 duplicate filter matched file with APP-2026-ENG-8491',
+      },
+      {
+        id: 'AUD-7731-03',
+        timestamp: '2026-02-19T10:15:00Z',
+        actor: 'Shri B. N. Panda',
+        role: 'Regional Officer, Eastern Region',
+        action: 'REVIEW_STATUS_UPDATED',
+        previousValue: 'PENDING_SCRUTINY',
+        newValue: 'RECOMMENDED_FOR_PHYSICAL_INSPECTION',
+        remarks: 'Flagged for on-site physical inspection due to cross-state duplicate document hash.',
+      }
+    ]
+  }
+];
