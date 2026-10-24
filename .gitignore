@@ -35,3 +35,6 @@ next-env.d.ts
 
 # local persistent store cache
 .data/*.tmp
+
+# repomix bundle
+repomix-output.xml
