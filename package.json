@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:worker": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
-    "deploy": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion && wrangler deploy",
-    "preview": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion && wrangler dev"
+    "build:worker": "npx @opennextjs/cloudflare build --dangerouslyUseUnsupportedNextVersion",
+    "deploy": "npx @opennextjs/cloudflare build --dangerouslyUseUnsupportedNextVersion && wrangler deploy",
+    "preview": "npx @opennextjs/cloudflare build --dangerouslyUseUnsupportedNextVersion && wrangler dev"
   },
   "dependencies": {
     "clsx": "^2.1.1",
