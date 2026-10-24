@@ -8,10 +8,33 @@ const DB_FILE = path.join(DATA_DIR, 'db.json');
 
 // In-memory cache to ensure speedy reads in serverless / dev environments
 let memoryCache: InstitutionalApplication[] | null = null;
+let isFsSupported: boolean | null = null;
+
+function checkFsSupport(): boolean {
+  if (isFsSupported !== null) return isFsSupported;
+  try {
+    if (typeof fs === 'undefined' || !fs.existsSync || !fs.mkdirSync) {
+      isFsSupported = false;
+      return false;
+    }
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    isFsSupported = true;
+    return true;
+  } catch {
+    isFsSupported = false;
+    return false;
+  }
+}
 
 function ensureDataDir(): void {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    if (checkFsSupport() && !fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+  } catch {
+    // Ignore in read-only / Cloudflare Workers environment
   }
 }
 
@@ -20,33 +43,37 @@ export function loadApplications(): InstitutionalApplication[] {
     return memoryCache;
   }
 
-  ensureDataDir();
-
-  if (fs.existsSync(DB_FILE)) {
-    try {
+  try {
+    if (checkFsSupport() && fs.existsSync(DB_FILE)) {
       const data = fs.readFileSync(DB_FILE, 'utf-8');
       memoryCache = JSON.parse(data);
       return memoryCache!;
-    } catch (err) {
-      console.error('[Storage] Error reading db.json, falling back to seed data:', err);
     }
+  } catch (err) {
+    console.warn('[Storage] Filesystem read unavailable, using in-memory seed data:', err);
   }
 
   // Seed default data
   memoryCache = JSON.parse(JSON.stringify(SEED_APPLICATIONS));
-  saveApplications(memoryCache!);
+  if (checkFsSupport()) {
+    saveApplications(memoryCache!);
+  }
   return memoryCache!;
 }
 
 export function saveApplications(apps: InstitutionalApplication[]): void {
-  ensureDataDir();
   memoryCache = apps;
+  if (!checkFsSupport()) {
+    return; // Cloudflare Workers / Edge in-memory mode
+  }
+
   try {
+    ensureDataDir();
     const tempFile = `${DB_FILE}.tmp`;
     fs.writeFileSync(tempFile, JSON.stringify(apps, null, 2), 'utf-8');
     fs.renameSync(tempFile, DB_FILE);
   } catch (err) {
-    console.error('[Storage] Failed to save applications to disk:', err);
+    console.warn('[Storage] Failed to save applications to disk:', err);
   }
 }
 
@@ -140,7 +167,6 @@ export function updateFindingReview(
 }
 
 export function resetDatabase(): InstitutionalApplication[] {
-  ensureDataDir();
   memoryCache = JSON.parse(JSON.stringify(SEED_APPLICATIONS));
   saveApplications(memoryCache!);
   return memoryCache!;
