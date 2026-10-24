@@ -1,0 +1,197 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "AICTE Rakshak AI — End-to-End Application Workflow",
+    "subtitle": "Complete Scrutiny Lifecycle: Ingestion, Extraction, Validation, Verification, and Human Adjudication",
+    "quality_profile": "showcase",
+    "output": "docs/architecture/application-workflow.html",
+    "repository": {
+      "url": "https://github.com/aicte/rakshak-ai.git",
+      "revision": "849dcbbb97d278e668a8cd0823838d7a73a63572",
+      "link_mode": "local-only"
+    }
+  },
+  "lanes": [
+    { "id": "officer", "label": "Scrutiny Officer Workspace" },
+    { "id": "intake", "label": "Ingestion & Document Parser" },
+    { "id": "ai_rules", "label": "AI Extraction & Rules Engine" },
+    { "id": "verification", "label": "Issuing Authority Verification" },
+    { "id": "decision", "label": "Audit, Review & Final Docket" }
+  ],
+  "phases": [
+    { "id": "phase_intake", "label": "Intake & Parsing", "fromCol": 0, "toCol": 1, "variant": "default" },
+    { "id": "phase_val", "label": "Extraction & Rules", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "phase_verif", "label": "Authority Verification", "fromCol": 4, "toCol": 4, "variant": "security" },
+    { "id": "phase_rep", "label": "Review & Docket Export", "fromCol": 5, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "grp_intake", "label": "PDF Processing", "lane": "intake", "fromCol": 1, "toCol": 2, "variant": "default" },
+    { "id": "grp_rules", "label": "Deterministic & Compliance Pipeline", "lane": "ai_rules", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "grp_verif", "label": "Simulated Authority Hub", "lane": "verification", "fromCol": 3, "toCol": 4, "variant": "security" },
+    { "id": "grp_audit", "label": "Advisory Decision Support", "lane": "decision", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": [
+    "officer_select",
+    "app_loaded",
+    "upload_pdf",
+    "pdf_parser",
+    "ai_extract",
+    "rule_eval",
+    "trigger_verif",
+    "officer_review",
+    "audit_commit",
+    "report_gen"
+  ],
+  "nodes": [
+    {
+      "id": "officer_select",
+      "lane": "officer",
+      "col": 0,
+      "type": "external",
+      "label": "Select Application",
+      "sublabel": "Dashboard or Registry",
+      "icon": "person",
+      "sources": [{ "path": "src/app/page.tsx", "line": 50, "end_line": 95 }]
+    },
+    {
+      "id": "app_loaded",
+      "lane": "intake",
+      "col": 0,
+      "type": "backend",
+      "label": "Application Loaded",
+      "sublabel": "Profile & Active Filing",
+      "sources": [{ "path": "src/app/applications/[id]/page.tsx", "line": 45, "end_line": 80 }]
+    },
+    {
+      "id": "upload_pdf",
+      "lane": "intake",
+      "col": 1,
+      "type": "frontend",
+      "label": "Upload / Load PDF",
+      "sublabel": "Drag & Drop or Preset",
+      "tag": "1-Click Library",
+      "sources": [{ "path": "src/components/scrutiny/DocumentIntelligence.tsx", "line": 30, "end_line": 85 }]
+    },
+    {
+      "id": "file_error",
+      "lane": "verification",
+      "col": 1,
+      "type": "security",
+      "label": "File Error (Reject)",
+      "sublabel": "Size >10MB or Not PDF",
+      "icon": "failure"
+    },
+    {
+      "id": "pdf_parser",
+      "lane": "intake",
+      "col": 2,
+      "type": "backend",
+      "label": "PDF Stream Parser",
+      "sublabel": "Plain Text & SHA-256",
+      "tag": "Crypto Hash",
+      "sources": [{ "path": "src/lib/pdf/extractor.ts", "line": 13, "end_line": 65 }]
+    },
+    {
+      "id": "ai_extract",
+      "lane": "ai_rules",
+      "col": 2,
+      "type": "backend",
+      "label": "Dual-Mode AI Extract",
+      "sublabel": "Regex Heuristic / Gemini",
+      "tag": "Confidence %",
+      "sources": [{ "path": "src/lib/ai/provider.ts", "line": 15, "end_line": 85 }]
+    },
+    {
+      "id": "rule_eval",
+      "lane": "ai_rules",
+      "col": 3,
+      "type": "backend",
+      "label": "Deterministic Rules",
+      "sublabel": "8 Objective Checks",
+      "tag": "Zero Drift",
+      "sources": [{ "path": "src/lib/validation/engine.ts", "line": 26, "end_line": 190 }]
+    },
+    {
+      "id": "source_outage",
+      "lane": "verification",
+      "col": 3,
+      "type": "security",
+      "label": "Source Outage (503)",
+      "sublabel": "Unresolved Authority Hub",
+      "icon": "waiting"
+    },
+    {
+      "id": "trigger_verif",
+      "lane": "verification",
+      "col": 4,
+      "type": "frontend",
+      "label": "Trigger Verification",
+      "sublabel": "Simulate Authority Query",
+      "tag": "DEMO MOCK",
+      "sources": [{ "path": "src/components/scrutiny/VerificationHub.tsx", "line": 30, "end_line": 70 }]
+    },
+    {
+      "id": "officer_review",
+      "lane": "officer",
+      "col": 4,
+      "type": "external",
+      "label": "Officer Adjudication",
+      "sublabel": "Resolve, Waive, Clarify",
+      "icon": "person",
+      "tag": "Human-in-the-Loop",
+      "sources": [{ "path": "src/components/scrutiny/ValidationFindings.tsx", "line": 50, "end_line": 95 }]
+    },
+    {
+      "id": "audit_commit",
+      "lane": "decision",
+      "col": 4,
+      "type": "database",
+      "label": "Immutable Audit Log",
+      "sublabel": "Timestamped Event Log",
+      "sources": [{ "path": "src/lib/storage/db.ts", "line": 60, "end_line": 80 }]
+    },
+    {
+      "id": "report_gen",
+      "lane": "decision",
+      "col": 5,
+      "type": "backend",
+      "label": "Generate Report",
+      "sublabel": "Printable PDF / JSON",
+      "sources": [{ "path": "src/components/scrutiny/ReportView.tsx", "line": 20, "end_line": 90 }]
+    }
+  ],
+  "edges": [
+    { "id": "e1", "from": "officer_select", "to": "app_loaded", "label": "selects ID", "variant": "emphasis" },
+    { "id": "e2", "from": "app_loaded", "to": "upload_pdf", "label": "opens console", "variant": "default" },
+    { "id": "e3", "from": "upload_pdf", "to": "file_error", "label": "invalid format", "variant": "security", "role": "error" },
+    { "id": "e4", "from": "upload_pdf", "to": "pdf_parser", "label": "POST buffer", "variant": "emphasis" },
+    { "id": "e5", "from": "pdf_parser", "to": "ai_extract", "label": "stream text", "variant": "default" },
+    { "id": "e6", "from": "ai_extract", "to": "rule_eval", "label": "fields + conf", "variant": "emphasis" },
+    { "id": "e7", "from": "rule_eval", "to": "trigger_verif", "label": "queries state", "variant": "default" },
+    { "id": "e8", "from": "trigger_verif", "to": "source_outage", "label": "503 timeout", "variant": "security", "role": "branch" },
+    { "id": "e9", "from": "trigger_verif", "to": "officer_review", "label": "authority badge", "variant": "emphasis" },
+    { "id": "e10", "from": "officer_review", "to": "audit_commit", "label": "commits review", "variant": "emphasis" },
+    { "id": "e11", "from": "audit_commit", "to": "report_gen", "label": "exports docket", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Ingestion & Extraction Stage",
+      "items": [
+        "Server-side binary parsing with SHA-256 duplicate detection",
+        "Provider-independent AI field extraction with confidence scores",
+        "Source text citations preserved for every extracted field"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Advisory Decision Support Guardrail",
+      "items": [
+        "Strict prohibition on automatic rejection or approval",
+        "Findings remain advisory: human officer resolves or waives",
+        "Every status change recorded in immutable timestamped audit log"
+      ]
+    }
+  ]
+}

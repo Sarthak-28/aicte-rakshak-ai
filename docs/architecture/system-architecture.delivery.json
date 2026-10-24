@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "db31180d-7712-49b3-b512-abfc4aad60ad",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\system-architecture.json",
+  "output": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\system-architecture.html",
+  "specification": {
+    "sha256": "5917b550ee0a3392c8237c14a4a36ae045639a904bf06a2eb0c2650216ce1edc",
+    "bytes": 8132
+  },
+  "artifact": {
+    "sha256": "382a7b1fc53473856397b8cdd7d2b310b8a491bfbc040c5898a846c296cfb06b",
+    "bytes": 847424
+  }
+}

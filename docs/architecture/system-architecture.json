@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AICTE Rakshak AI — System Architecture",
+    "subtitle": "Human-in-the-Loop Decision Support Prototype for Institutional Application Scrutiny",
+    "output": "docs/architecture/system-architecture.html",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/aicte/rakshak-ai.git",
+      "revision": "849dcbbb97d278e668a8cd0823838d7a73a63572",
+      "link_mode": "local-only"
+    }
+  },
+  "components": [
+    {
+      "id": "officer",
+      "type": "external",
+      "label": "Scrutiny Officer",
+      "sublabel": "Bureau of Approval",
+      "pos": [40, 50],
+      "size": [130, 64],
+      "icon": "person"
+    },
+    {
+      "id": "dashboard_ui",
+      "type": "frontend",
+      "label": "Officer Dashboard",
+      "sublabel": "Next.js / Recharts",
+      "pos": [220, 50],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/page.tsx", "line": 23, "end_line": 150 }]
+    },
+    {
+      "id": "registry_ui",
+      "type": "frontend",
+      "label": "Application Registry",
+      "sublabel": "Search & Multi-Filter",
+      "pos": [420, 50],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/registry/page.tsx", "line": 8, "end_line": 32 }]
+    },
+    {
+      "id": "scrutiny_console",
+      "type": "frontend",
+      "label": "Scrutiny Console",
+      "sublabel": "7 Interactive Modules",
+      "pos": [620, 50],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/applications/[id]/page.tsx", "line": 40, "end_line": 200 }]
+    },
+    {
+      "id": "report_ui",
+      "type": "frontend",
+      "label": "Report Exporter",
+      "sublabel": "Printable PDF / JSON",
+      "pos": [820, 50],
+      "size": [140, 64],
+      "sources": [{ "path": "src/components/scrutiny/ReportView.tsx", "line": 16, "end_line": 120 }]
+    },
+    {
+      "id": "api_gateway",
+      "type": "backend",
+      "label": "API Route Handlers",
+      "sublabel": "Next.js Server API",
+      "pos": [220, 200],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/api/applications/route.ts", "line": 4, "end_line": 50 }]
+    },
+    {
+      "id": "doc_service",
+      "type": "backend",
+      "label": "Document Handler",
+      "sublabel": "Upload & Extract API",
+      "pos": [420, 200],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/api/applications/[id]/documents/route.ts", "line": 10, "end_line": 95 }]
+    },
+    {
+      "id": "val_api",
+      "type": "backend",
+      "label": "Validation API",
+      "sublabel": "Rule Runner & Waivers",
+      "pos": [620, 200],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/api/applications/[id]/validate/route.ts", "line": 5, "end_line": 55 }]
+    },
+    {
+      "id": "verif_api",
+      "type": "backend",
+      "label": "Verification API",
+      "sublabel": "Authority Query Hook",
+      "pos": [820, 200],
+      "size": [140, 64],
+      "sources": [{ "path": "src/app/api/applications/[id]/verify/route.ts", "line": 5, "end_line": 65 }]
+    },
+    {
+      "id": "pdf_engine",
+      "type": "backend",
+      "label": "PDF Stream Parser",
+      "sublabel": "Layout / SHA-256 Hash",
+      "pos": [220, 340],
+      "size": [140, 64],
+      "sources": [{ "path": "src/lib/pdf/extractor.ts", "line": 13, "end_line": 70 }]
+    },
+    {
+      "id": "ai_adapter",
+      "type": "backend",
+      "label": "AI Provider Interface",
+      "sublabel": "Gemini / Regex Fallback",
+      "pos": [420, 340],
+      "size": [140, 64],
+      "sources": [{ "path": "src/lib/ai/provider.ts", "line": 10, "end_line": 85 }]
+    },
+    {
+      "id": "rule_engine",
+      "type": "backend",
+      "label": "Deterministic Rules",
+      "sublabel": "8 Objective Checks",
+      "pos": [620, 340],
+      "size": [140, 64],
+      "sources": [{ "path": "src/lib/validation/engine.ts", "line": 26, "end_line": 210 }]
+    },
+    {
+      "id": "auth_simulator",
+      "type": "backend",
+      "label": "Authority Simulator",
+      "sublabel": "Simulated State Ports",
+      "pos": [820, 340],
+      "size": [140, 64],
+      "sources": [{ "path": "src/lib/verification/simulator.ts", "line": 12, "end_line": 70 }]
+    },
+    {
+      "id": "local_store",
+      "type": "database",
+      "label": "JSON Store (.data/)",
+      "sublabel": "Atomic File Persistence",
+      "pos": [520, 470],
+      "size": [160, 64],
+      "sources": [{ "path": "src/lib/storage/db.ts", "line": 15, "end_line": 90 }]
+    },
+    {
+      "id": "ext_gemini",
+      "type": "cloud",
+      "label": "Google Gemini API",
+      "sublabel": "Optional Vision / LLM",
+      "pos": [420, 610],
+      "size": [140, 64],
+      "tag": "Optional Key"
+    },
+    {
+      "id": "pg_adapter",
+      "type": "database",
+      "label": "PostgreSQL / DB",
+      "sublabel": "Planned Adapter",
+      "pos": [620, 610],
+      "size": [140, 64],
+      "tag": "Conceptual"
+    },
+    {
+      "id": "ext_agencies",
+      "type": "external",
+      "label": "State Registries",
+      "sublabel": "DEMO SIMULATION",
+      "pos": [820, 610],
+      "size": [140, 64],
+      "tag": "Mock Portals"
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "AICTE Officer Scrutiny Workspace (Client Browser)",
+      "wraps": ["dashboard_ui", "registry_ui", "scrutiny_console", "report_ui"]
+    },
+    {
+      "kind": "security-group",
+      "label": "Next.js Application Core & Server Engine",
+      "wraps": ["api_gateway", "doc_service", "val_api", "verif_api", "pdf_engine", "ai_adapter", "rule_engine", "auth_simulator", "local_store"]
+    }
+  ],
+  "connections": [
+    { "id": "c1", "from": "officer", "to": "dashboard_ui", "label": "HTTP :3000", "variant": "emphasis" },
+    { "id": "c2", "from": "dashboard_ui", "to": "registry_ui", "label": "navigates" },
+    { "id": "c3", "from": "registry_ui", "to": "scrutiny_console", "label": "opens ID" },
+    { "id": "c4", "from": "scrutiny_console", "to": "report_ui", "label": "generates" },
+    { "id": "c5", "from": "dashboard_ui", "to": "api_gateway", "label": "GET metrics" },
+    { "id": "c6", "from": "scrutiny_console", "to": "val_api", "label": "POST /validate" },
+    { "id": "c7", "from": "scrutiny_console", "to": "verif_api", "label": "POST /verify" },
+    { "id": "c8", "from": "doc_service", "to": "pdf_engine", "label": "parse stream" },
+    { "id": "c9", "from": "doc_service", "to": "ai_adapter", "label": "extract fields" },
+    { "id": "c10", "from": "val_api", "to": "rule_engine", "label": "evaluates rules" },
+    { "id": "c11", "from": "verif_api", "to": "auth_simulator", "label": "simulate query" },
+    { "id": "c12", "from": "ai_adapter", "to": "ext_gemini", "label": "REST API", "variant": "dashed" },
+    { "id": "c13", "from": "auth_simulator", "to": "ext_agencies", "label": "DEMO MOCK", "variant": "dashed" },
+    { "id": "c14", "from": "ai_adapter", "to": "local_store", "label": "persists data" },
+    { "id": "c15", "from": "rule_engine", "to": "local_store", "label": "persists findings" },
+    { "id": "c16", "from": "local_store", "to": "pg_adapter", "label": "DATABASE_URL", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Presentation & Dashboard Tier",
+      "items": [
+        "Officer Dashboard with calculated metrics & Recharts analytics",
+        "Searchable Registry with 1-click synthetic scenario presets",
+        "7-module Scrutiny Console & official printable report generator"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Core Processing & Validation Engine",
+      "items": [
+        "Server-side PDF stream text extraction & SHA-256 fingerprinting",
+        "Dual-mode AI field extraction (Gemini REST or offline heuristics)",
+        "8 deterministic rules for objective statutory checks without drift"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Verification, Persistence & Security",
+      "items": [
+        "Multi-agency issuing authority simulation with DEMO tags",
+        "Atomic JSON file persistence with in-memory caching",
+        "Strict human-in-the-loop guardrail: no automated final decisions"
+      ]
+    }
+  ]
+}

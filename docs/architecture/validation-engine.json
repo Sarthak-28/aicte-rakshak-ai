@@ -1,0 +1,188 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "AICTE Rakshak AI — AI & Rule-Based Validation Flow",
+    "subtitle": "Decoupled Architecture: Semantic AI Extraction, Deterministic Rules, Evidence Linking, and Human Adjudication",
+    "quality_profile": "showcase",
+    "output": "docs/architecture/validation-engine.html",
+    "repository": {
+      "url": "https://github.com/aicte/rakshak-ai.git",
+      "revision": "849dcbbb97d278e668a8cd0823838d7a73a63572",
+      "link_mode": "local-only"
+    }
+  },
+  "lanes": [
+    { "id": "input", "label": "Document Ingestion & Stream Buffer" },
+    { "id": "ai_layer", "label": "AI Extraction & Confidence Scorer" },
+    { "id": "deterministic", "label": "Deterministic Rules (APH 2026-27)" },
+    { "id": "evidence", "label": "Evidence References & Findings" },
+    { "id": "adjudication", "label": "Human Scrutiny Decision Gate" }
+  ],
+  "phases": [
+    { "id": "phase_input", "label": "Ingestion & Stream Parsing", "fromCol": 0, "toCol": 1, "variant": "default" },
+    { "id": "phase_ai", "label": "AI Semantic Extraction", "fromCol": 2, "toCol": 2, "variant": "emphasis" },
+    { "id": "phase_rules", "label": "Objective Rule Verification", "fromCol": 3, "toCol": 4, "variant": "security" },
+    { "id": "phase_adj", "label": "Officer Decision Support", "fromCol": 5, "toCol": 5, "variant": "dashed" }
+  ],
+  "groups": [
+    { "id": "grp_doc", "label": "Server-Side Parsing", "lane": "input", "fromCol": 0, "toCol": 1, "variant": "default" },
+    { "id": "grp_ai", "label": "Provider-Independent AI", "lane": "ai_layer", "fromCol": 1, "toCol": 2, "variant": "emphasis" },
+    { "id": "grp_det", "label": "Deterministic Norms", "lane": "deterministic", "fromCol": 2, "toCol": 4, "variant": "security" },
+    { "id": "grp_gate", "label": "Advisory Scrutiny Guardrail", "lane": "adjudication", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": [
+    "raw_doc",
+    "text_stream",
+    "ai_semantic",
+    "mand_rule",
+    "temporal_rule",
+    "findings_layer",
+    "no_auto_reject",
+    "officer_action"
+  ],
+  "nodes": [
+    {
+      "id": "raw_doc",
+      "lane": "input",
+      "col": 0,
+      "type": "frontend",
+      "label": "Submitted Document",
+      "sublabel": "Multipart / PDF Buffer",
+      "sources": [{ "path": "src/app/api/applications/[id]/documents/route.ts", "line": 20, "end_line": 60 }]
+    },
+    {
+      "id": "text_stream",
+      "lane": "input",
+      "col": 1,
+      "type": "backend",
+      "label": "Text Stream Extractor",
+      "sublabel": "BT/ET Blocks & Unicode",
+      "sources": [{ "path": "src/lib/pdf/extractor.ts", "line": 25, "end_line": 65 }]
+    },
+    {
+      "id": "confidence_scorer",
+      "lane": "ai_layer",
+      "col": 1,
+      "type": "messagebus",
+      "label": "Confidence Scorer",
+      "sublabel": "0% to 100% Reliability",
+      "tag": "Confidence Indicator",
+      "sources": [{ "path": "src/lib/ai/provider.ts", "line": 50, "end_line": 95 }]
+    },
+    {
+      "id": "ai_semantic",
+      "lane": "ai_layer",
+      "col": 2,
+      "type": "backend",
+      "label": "AI Field Extractor",
+      "sublabel": "Gemini API / Regex Heuristics",
+      "tag": "Dual-Mode Engine",
+      "sources": [{ "path": "src/lib/ai/provider.ts", "line": 15, "end_line": 85 }]
+    },
+    {
+      "id": "sha_hasher",
+      "lane": "deterministic",
+      "col": 2,
+      "type": "security",
+      "label": "SHA-256 Duplicate Check",
+      "sublabel": "RULE_DUPLICATE_HASH",
+      "tag": "Cross-App Matching",
+      "sources": [{ "path": "src/lib/validation/engine.ts", "line": 160, "end_line": 195 }]
+    },
+    {
+      "id": "mand_rule",
+      "lane": "deterministic",
+      "col": 3,
+      "type": "backend",
+      "label": "Mandatory Presence",
+      "sublabel": "RULE_DOC_MANDATORY",
+      "tag": "Category Matrix",
+      "sources": [{ "path": "src/lib/validation/engine.ts", "line": 35, "end_line": 75 }]
+    },
+    {
+      "id": "citation_ref",
+      "lane": "evidence",
+      "col": 3,
+      "type": "frontend",
+      "label": "Source Citation",
+      "sublabel": "Excerpt Quote & Page",
+      "sources": [{ "path": "src/types/index.ts", "line": 28, "end_line": 40 }]
+    },
+    {
+      "id": "temporal_rule",
+      "lane": "deterministic",
+      "col": 4,
+      "type": "backend",
+      "label": "Temporal Rules",
+      "sublabel": "RULE_CERT_EXPIRY & Dates",
+      "tag": "Objective Math",
+      "sources": [{ "path": "src/lib/validation/engine.ts", "line": 80, "end_line": 125 }]
+    },
+    {
+      "id": "findings_layer",
+      "lane": "evidence",
+      "col": 4,
+      "type": "messagebus",
+      "label": "Validation Findings",
+      "sublabel": "Severity, Rec. Action",
+      "tag": "Advisory Only",
+      "sources": [{ "path": "src/components/scrutiny/ValidationFindings.tsx", "line": 35, "end_line": 120 }]
+    },
+    {
+      "id": "no_auto_reject",
+      "lane": "adjudication",
+      "col": 4,
+      "type": "security",
+      "label": "Statutory Guardrail",
+      "sublabel": "No Auto-Rejection/Approval",
+      "icon": "flag",
+      "tag": "Advisory Rule",
+      "sources": [{ "path": "src/components/common/Footer.tsx", "line": 20, "end_line": 35 }]
+    },
+    {
+      "id": "officer_action",
+      "lane": "adjudication",
+      "col": 5,
+      "type": "external",
+      "label": "Officer Decision",
+      "sublabel": "Resolve, Waive, or Clarify",
+      "icon": "person",
+      "tag": "Human Authority",
+      "sources": [{ "path": "src/components/scrutiny/ValidationFindings.tsx", "line": 50, "end_line": 95 }]
+    }
+  ],
+  "edges": [
+    { "id": "e1", "from": "raw_doc", "to": "text_stream", "label": "parses stream", "variant": "emphasis" },
+    { "id": "e2", "from": "text_stream", "to": "ai_semantic", "label": "raw text", "variant": "default" },
+    { "id": "e3", "from": "ai_semantic", "to": "confidence_scorer", "label": "scores match", "variant": "default" },
+    { "id": "e4", "from": "raw_doc", "to": "sha_hasher", "label": "binary digest", "variant": "security" },
+    { "id": "e5", "from": "ai_semantic", "to": "mand_rule", "label": "parsed fields", "variant": "emphasis" },
+    { "id": "e6", "from": "mand_rule", "to": "temporal_rule", "label": "checks expiry", "variant": "default" },
+    { "id": "e7", "from": "ai_semantic", "to": "citation_ref", "label": "text quotes", "variant": "default" },
+    { "id": "e8", "from": "citation_ref", "to": "findings_layer", "label": "links excerpt", "variant": "emphasis" },
+    { "id": "e9", "from": "temporal_rule", "to": "findings_layer", "label": "flags anomaly", "variant": "emphasis" },
+    { "id": "e10", "from": "findings_layer", "to": "no_auto_reject", "label": "advisory finding", "variant": "security" },
+    { "id": "e11", "from": "no_auto_reject", "to": "officer_action", "label": "human review", "variant": "emphasis" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Decoupled Validation Architecture",
+      "items": [
+        "AI model performs semantic pattern extraction with confidence scoring",
+        "Deterministic rules perform objective mathematical & date checks",
+        "Zero stochastic variance in regulatory threshold evaluations"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Strict Regulatory Guardrails",
+      "items": [
+        "AI findings never automatically reject or approve an application",
+        "Findings carry verifiable document citations and expected values",
+        "All decisions remain strictly vested in authorized council officers"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "e0247265-9fbe-4171-b293-6527f26b77d2",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\validation-engine.json",
+  "output": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\validation-engine.html",
+  "specification": {
+    "sha256": "8c9934c33814225c0816ae195708dbfa2110d64e3cbe165101ffb8eb2083f49a",
+    "bytes": 7529
+  },
+  "artifact": {
+    "sha256": "de146b9e21498b7e786278171d4ebee9967abfdadc780dd1fd9b05bb99f49d34",
+    "bytes": 836702
+  }
+}

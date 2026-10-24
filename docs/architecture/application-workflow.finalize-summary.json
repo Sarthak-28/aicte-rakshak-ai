@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "workflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.json",
+    "sha256": "5732f8402728257203c270e05a5ce8def185070bc161f87f52939dc71f18ed6f",
+    "bytes": 7557
+  },
+  "artifact": {
+    "path": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.html",
+    "sha256": "3ce1b177e94782f117dd81c79d85d5e870dec06a6ecb3349102efbc00d016ea7",
+    "bytes": 837917
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.finalize.json",
+    "summaryReceipt": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-24T09:17:27.306Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 8443,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

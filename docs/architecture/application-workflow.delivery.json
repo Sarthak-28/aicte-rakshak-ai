@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "a3607b30-5384-468b-a290-1787dcfe89d0",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.json",
+  "output": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\application-workflow.html",
+  "specification": {
+    "sha256": "5732f8402728257203c270e05a5ce8def185070bc161f87f52939dc71f18ed6f",
+    "bytes": 7557
+  },
+  "artifact": {
+    "sha256": "3ce1b177e94782f117dd81c79d85d5e870dec06a6ecb3349102efbc00d016ea7",
+    "bytes": 837917
+  }
+}

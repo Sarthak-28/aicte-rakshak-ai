@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "AICTE Rakshak AI — Domain & Persistence Data Model",
+    "subtitle": "Relational Entity Schema for Institutional Scrutiny, Document Authentication, and Audit Tracking",
+    "quality_profile": "standard",
+    "output": "docs/architecture/data-model.html",
+    "repository": {
+      "url": "https://github.com/aicte/rakshak-ai.git",
+      "revision": "849dcbbb97d278e668a8cd0823838d7a73a63572",
+      "link_mode": "local-only"
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "gapX": 40,
+    "gapY": 30
+  },
+  "entities": [
+    {
+      "id": "app",
+      "label": "institutional_application",
+      "tag": "registry",
+      "row": 0,
+      "col": 0,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 150, "end_line": 180 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "scenario_tag", "type": "varchar(32)" },
+        { "name": "institution_name", "type": "varchar(160)" },
+        { "name": "institution_type", "type": "varchar(48)" },
+        { "name": "application_category", "type": "varchar(64)" },
+        { "name": "trust_name", "type": "varchar(160)" },
+        { "name": "state", "type": "varchar(48)" },
+        { "name": "district", "type": "varchar(48)" },
+        { "name": "submission_date", "type": "timestamptz" },
+        { "name": "academic_year", "type": "varchar(16)" },
+        { "name": "validation_status", "type": "varchar(32)" },
+        { "name": "verification_status", "type": "varchar(32)" },
+        { "name": "review_status", "type": "varchar(32)" },
+        { "name": "assigned_officer", "type": "varchar(96)" }
+      ]
+    },
+    {
+      "id": "doc",
+      "label": "application_document",
+      "tag": "documents",
+      "row": 0,
+      "col": 1,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 34, "end_line": 50 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "application_id", "type": "varchar(32)", "key": "fk", "references": "app.id" },
+        { "name": "document_type", "type": "varchar(48)" },
+        { "name": "title", "type": "varchar(160)" },
+        { "name": "file_name", "type": "varchar(160)" },
+        { "name": "file_size", "type": "integer" },
+        { "name": "file_hash", "type": "varchar(64)" },
+        { "name": "is_mandatory", "type": "boolean" },
+        { "name": "status", "type": "varchar(32)" }
+      ]
+    },
+    {
+      "id": "field",
+      "label": "extracted_field_detail",
+      "tag": "documents",
+      "row": 1,
+      "col": 1,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 28, "end_line": 34 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "document_id", "type": "varchar(32)", "key": "fk", "references": "doc.id" },
+        { "name": "field_key", "type": "varchar(48)" },
+        { "name": "field_value", "type": "text" },
+        { "name": "confidence", "type": "numeric(4,2)" },
+        { "name": "source_quote", "type": "text" },
+        { "name": "page_number", "type": "integer" }
+      ]
+    },
+    {
+      "id": "finding",
+      "label": "validation_finding",
+      "tag": "scrutiny",
+      "row": 0,
+      "col": 2,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 64, "end_line": 77 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "application_id", "type": "varchar(32)", "key": "fk", "references": "app.id" },
+        { "name": "rule_id", "type": "varchar(48)" },
+        { "name": "severity", "type": "varchar(16)" },
+        { "name": "category", "type": "varchar(32)" },
+        { "name": "title", "type": "varchar(160)" },
+        { "name": "explanation", "type": "text" },
+        { "name": "recommended_action", "type": "text" },
+        { "name": "review_status", "type": "varchar(16)" }
+      ]
+    },
+    {
+      "id": "verif",
+      "label": "verification_record",
+      "tag": "scrutiny",
+      "row": 1,
+      "col": 2,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 86, "end_line": 105 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "application_id", "type": "varchar(32)", "key": "fk", "references": "app.id" },
+        { "name": "document_id", "type": "varchar(32)", "key": "fk", "references": "doc.id" },
+        { "name": "issuing_authority", "type": "varchar(160)" },
+        { "name": "reference_number", "type": "varchar(64)" },
+        { "name": "status", "type": "varchar(32)" },
+        { "name": "verification_method", "type": "varchar(32)" },
+        { "name": "simulation_badge", "type": "boolean" }
+      ]
+    },
+    {
+      "id": "compliance",
+      "label": "compliance_check_result",
+      "tag": "scrutiny",
+      "row": 2,
+      "col": 2,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 107, "end_line": 120 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "application_id", "type": "varchar(32)", "key": "fk", "references": "app.id" },
+        { "name": "rule_id", "type": "varchar(32)" },
+        { "name": "category", "type": "varchar(48)" },
+        { "name": "title", "type": "varchar(120)" },
+        { "name": "result", "type": "varchar(32)" },
+        { "name": "rule_version", "type": "varchar(24)" }
+      ]
+    },
+    {
+      "id": "audit",
+      "label": "audit_log_entry",
+      "tag": "audit",
+      "row": 0,
+      "col": 3,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 136, "end_line": 147 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "application_id", "type": "varchar(32)", "key": "fk", "references": "app.id" },
+        { "name": "timestamp", "type": "timestamptz" },
+        { "name": "actor", "type": "varchar(96)" },
+        { "name": "role", "type": "varchar(48)" },
+        { "name": "action", "type": "varchar(64)" },
+        { "name": "previous_value", "type": "text" },
+        { "name": "new_value", "type": "text" }
+      ]
+    },
+    {
+      "id": "infra",
+      "label": "infrastructure_evidence",
+      "tag": "audit",
+      "row": 1,
+      "col": 3,
+      "width": 270,
+      "sources": [{ "path": "src/types/index.ts", "line": 122, "end_line": 134 }],
+      "attributes": [
+        { "name": "id", "type": "varchar(32)", "key": "pk" },
+        { "name": "application_id", "type": "varchar(32)", "key": "fk", "references": "app.id" },
+        { "name": "title", "type": "varchar(120)" },
+        { "name": "area_type", "type": "varchar(48)" },
+        { "name": "image_url", "type": "varchar(255)" },
+        { "name": "recommend_inspection", "type": "boolean" }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r_app_doc",
+      "from": "app",
+      "to": "doc",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "has documents"
+    },
+    {
+      "id": "r_doc_field",
+      "from": "doc",
+      "to": "field",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "extracts fields"
+    },
+    {
+      "id": "r_app_finding",
+      "from": "app",
+      "to": "finding",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "generates findings"
+    },
+    {
+      "id": "r_app_verif",
+      "from": "app",
+      "to": "verif",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "records verifications"
+    },
+    {
+      "id": "r_doc_verif",
+      "from": "doc",
+      "to": "verif",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "authenticates document"
+    },
+    {
+      "id": "r_app_compliance",
+      "from": "app",
+      "to": "compliance",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "checks compliance"
+    },
+    {
+      "id": "r_app_audit",
+      "from": "app",
+      "to": "audit",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "tracks audit events"
+    },
+    {
+      "id": "r_app_infra",
+      "from": "app",
+      "to": "infra",
+      "fromCardinality": "one",
+      "toCardinality": "many",
+      "label": "attaches site photos"
+    }
+  ]
+}

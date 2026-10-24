@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "9d3d198d-54c1-4514-be28-ddc9c28fad59",
+  "status": "current",
+  "command": "deliver",
+  "type": "erd",
+  "input": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\data-model.json",
+  "output": "C:\\Users\\Tamanna sayyed\\Downloads\\AICTE\\docs\\architecture\\data-model.html",
+  "specification": {
+    "sha256": "f42802163b10f554c0a047d84e37f3b0bf565d37e4037708e72f03ea1c2c5660",
+    "bytes": 8416
+  },
+  "artifact": {
+    "sha256": "f09a657fa72b0ec08d8bf0fd89861524d12f15a7ab6b38bd2f501693947e15e0",
+    "bytes": 861579
+  }
+}
